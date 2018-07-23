@@ -1,0 +1,7 @@
+.a {
+  font-size: 12px;
+  color: red; }
+  .a .b {
+    color: red; }
+    .a .b .c {
+      color: #f40; }

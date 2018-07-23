@@ -1,0 +1,11 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+.silde{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    &-img{
+        height:100%;
+        width:100%;
+    }
+}

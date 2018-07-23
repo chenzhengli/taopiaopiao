@@ -1,0 +1,13 @@
+.home {
+  font-size: 14px;
+  color: red; }
+  .home-slide {
+    position: relative;
+    height: 0;
+    padding-bottom: 40%; }
+  .home-slideWrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0; }
