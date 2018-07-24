@@ -1,12 +1,19 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Slider from 'react-slick';
 import './Slide.css';
 class componentName extends Component {
+   constructor(props){
+       super(props);
+       this.state={
+           data:this.props.data,
+       }
+   }
     render() {
         var settings = {
             dots: true,
             infinite: true,
-            sutoplay:true,
+            autoplay:true,
+            dotsClass:'slide-dots',
             // speed: 500,
             // slidesToShow: 1,
             // slidesToScroll: 1
@@ -14,29 +21,13 @@ class componentName extends Component {
           };
         return (
             <Slider {...settings}>
-                <div>
-                   <img clsassName="slide-img" src="/imgs/1.jpg"/>
-                </div>
-                <div>
-                    <img clsassName="slide-img" src="/imgs/3.jpg"/>
-                </div>
-                <div>
-                   <img clsassName="slide-img" src="/imgs/1.jpg"/>
-                </div>
-                <div>
-                    <img clsassName="slide-img" src="/imgs/3.jpg"/>
-                </div>
-                <div>
-                   <img clsassName="slide-img" src="/imgs/1.jpg"/>
-                </div>
-               
+                {this.state.data.map((value,index)=>{
+                    return <div key={index}>
+                                <img className="slide-img" src={value}/>
+                            </div>
+                })}
             </Slider>
         );
     }
 }
-
-componentName.propTypes = {
-
-};
-
 export default componentName;

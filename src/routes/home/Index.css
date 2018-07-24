@@ -1,6 +1,5 @@
 .home {
-  font-size: 14px;
-  color: red; }
+  font-size: 14px; }
   .home-slide {
     position: relative;
     height: 0;
@@ -11,3 +10,10 @@
     top: 0;
     left: 0;
     bottom: 0; }
+  .home-movieItems {
+    padding: 0 20px;
+    list-style: none; }
+    .home-movieItems li {
+      list-style: none; }
+      .home-movieItems li:nth-child(n+2) {
+        border-top: 1px solid #e4e2e2; }

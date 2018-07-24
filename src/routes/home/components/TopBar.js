@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import './TopBar.css';
 
 const TopBar=({city,showCityLayer})=>{
@@ -11,8 +11,8 @@ const TopBar=({city,showCityLayer})=>{
     </div>
   );
 };
-TopBar.PropTypes={
-  city:PropTypes.string.isRequired,
-  showCityLayer:PropTypes.func.isRequired,
+TopBar.propTypes={
+  city:propTypes.string.isRequired,
+  showCityLayer:propTypes.func.isRequired,
 };
 export default TopBar;

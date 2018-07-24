@@ -1,11 +1,12 @@
+@import "../../utils.scss";
 .home{
   font-size:14px;
-  color:red;
+  // color:red;
   &-slide{
     position: relative;
     height:0;
     padding-bottom: 40%;
-    
+
   }
   &-slideWrapper{
     position: absolute;
@@ -13,5 +14,17 @@
     top:0;
     left:0;
     bottom: 0;
+  }
+  &-movieItems{
+    padding: 0 20px;
+    // margin-top:10px;
+    list-style: none;
+    li{
+      list-style: none;
+      &:nth-child(n+2){
+        border-top:1px solid $border
+      }
+      
+    }
   }
 }
