@@ -5,8 +5,15 @@ class componentName extends Component {
    constructor(props){
        super(props);
        this.state={
-           data:this.props.data,
+           data:[],
        }
+   }
+   componentWillReceiveProps(props){
+        if(!this.state.data.length>0){
+            this.setState({
+                data:props.data,
+            })
+        }
    }
     render() {
         var settings = {

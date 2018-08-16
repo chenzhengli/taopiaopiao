@@ -8,9 +8,19 @@ import RenderToBody from '../../components/RenderToBody';
 import CityLayer from './components/CityLayer';
 import request from '../../helpers/request';
 import './Index.css';
+const path=require("path");
+console.log(9091090,path.resolve("routes"));
 class Index extends Component {
+  state={
+    city:'',
+    poster:[],
+    movies:[],
+    isShowCityLayer:false,
+  }
   showCityLayer=()=>{
-    console.log("9999");
+    this.setState({
+      isShowCityLayer:true,
+    })
   }
 
   componentDidMount(){
@@ -18,26 +28,32 @@ class Index extends Component {
   }
   getData=async()=>{
     const data=await request("/movieList");
-    console.log(11111,data);
+    const {city,poster,movies}=data;
+    this.setState({
+      city,
+      poster,
+      movies,
+    })
+
   }
 
   render() {
+    const {city,movies,poster,isShowCityLayer}=this.state;
     return (
       <div className="home">
-        <TopBar city="杭州" showCityLayer={this.showCityLayer}/>
+        <TopBar city={city}  showCityLayer={this.showCityLayer}/>
         <div className="home-slide">
           <div className="home-slideWrapper">
-           <Slider data={['/imgs/1.png','/imgs/2.png','/imgs/1.png','/imgs/2.png']}></Slider>
+           <Slider data={poster}></Slider>
           </div>
         </div>
         <ul className="home-movieItems">
-          <li><MovieItems/></li>
-          <li><MovieItems/></li>
-          <li><MovieItems/></li>
-          <li><MovieItems/></li>
+          {movies.map((value,index)=>{
+            return  <li key={value.id+Math.random()}><MovieItems item={value}/></li>
+          })}
         </ul>
         <TabMenu current={"movie"}></TabMenu>
-        <RenderToBody><CityLayer/></RenderToBody>
+        { isShowCityLayer?<RenderToBody><CityLayer/></RenderToBody>:null}
       </div>
     );
   }
